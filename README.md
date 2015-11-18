@@ -14,3 +14,6 @@ Pending:
 
 USER_ID=3882697 LIST_ID=1001 TRELLO_EMAIL=miguelbeltransanz+sazf418si8i2peen0rui@boards.trello.com POSTMARK_API_KEY=6772ee6e-8a30-4083-8176-ff4645b6f32c FROM_EMAIL=hi@miguel.im TRELLO_LABEL='#Films'  ruby synchronize.rb
 
+Normal deploy to heroku
+Add Redis: heroku addons:create heroku-redis:hobby-dev
+Add Scheduler: heroku addons:open scheduler

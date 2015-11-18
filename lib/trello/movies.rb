@@ -15,7 +15,7 @@ module Trello
       end
 
       def movies_ids_already_in_database
-        redis.lrange('movies_list', 0, -1).map(&:to_i)
+        Database.load_movies_ids_list
       end
 
       def filmaffinity_list_parser

@@ -49,7 +49,7 @@ module Trello
     end
 
     def persist_in_database
-      Redis.new.rpush('movies_list', @movie.id)
+      Database.persist_movie(@movie)
     end
   end
 end

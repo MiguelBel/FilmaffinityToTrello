@@ -3,6 +3,7 @@ require_relative './lib/filmaffinity/movie_parser'
 require_relative './lib/trello/mailer'
 require_relative './lib/trello/movies'
 require_relative './lib/filmaffinity_to_trello'
+require_relative './lib/trello/database'
 
 desc 'Synchronize filmaffinity list with trello board'
 task :synchronize do
