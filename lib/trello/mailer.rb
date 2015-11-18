@@ -25,6 +25,7 @@ module Trello
     def send_email
       form_email
       set_subject
+      set_body
       add_attachments
       @email.deliver
     end
@@ -33,7 +34,6 @@ module Trello
       @email = Mail.new do
         from ENV['FROM_EMAIL']
         to ENV['TRELLO_EMAIL']
-        body 'Sync from Filmaffinity to Trello #Films'
 
         delivery_method Mail::Postmark, :api_token => ENV['POSTMARK_API_KEY']
       end
@@ -42,6 +42,11 @@ module Trello
     def set_subject
       subject = "#{@movie.title} (#{@movie.year}) #{ENV['TRELLO_LABEL']}"
       @email.subject = subject
+    end
+
+    def set_body
+      body = "Sync from Filmaffinity to Trello. http://www.filmaffinity.com/en/film#{@movie.id}.html #Films"
+      @email.body = body
     end
 
     def add_attachments
